@@ -1,4 +1,5 @@
-# Notes_of_train_faster_rcnn_on_voc
+训练faster rcnn的一些笔记
+=================================
 [Faster RCNN](https://github.com/DetectionTeamUCAS/Faster-RCNN_Tensorflow)的训练过程，在此记录下来。<br>
 
 ## 1.data preparation

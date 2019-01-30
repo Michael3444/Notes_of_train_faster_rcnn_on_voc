@@ -36,8 +36,26 @@ transfer raw image files into tfrecord format
 * 确保前景anchors的数量fg_nums不超过128个，超出的的全标注为-1。
 * 确保背景anchors的数量不超过256-fg_nums，将超出的全标记为-1。
 * 所有的在图像内部的anchors与和其iou最大的ground truth进行编码，超出图像范围的anchors设为0。
-## 4.
-****
+## 4.rpn proposals postprocess
+对rpn网络的输出进行后处理以便后续fast rcnn操作：
+* 根据rpn_box_pred，对所有的anchors进行解码，对超出图像范围的预测框裁剪到图像内部。
+* 根据前景的置信度，选出前12000个预测框。
+* 非极大值抑制， 选出前2000个预测框。
+## 5.Label the proposals of rpn
+对fast rcnn进行标注，由于rpn只是判断前景和背景，是个二分类；fast rcnn是个多分类：
+* proposals与某个ground truth 的iou最大，且大于0.5，认为是前景，其余为背景。
+* 从中选择128个前景，128个背景，背景的label为0，前景的label为ground truth的种类。
+* box_targets的列数为84，除了代表类别的reg有四个位置有值以外，其余为零。
+* fast rcnn的输入为上述步骤选出的约256个rois。
+## 6.roi pooling
+步骤5中选出的约256个rois，由于其[x1,y1,x2,y2]为在原始图像上的坐标，所以需要先将其投射到feature map上，crop and resize到14x14大小，再降采样到7x7大小。  
+## 7.build loss
+训练时的损失总共有四种：rpn_cls_loss,rpn_bbox_loss,cls_loss,bbox_loss
 
-****
- 
+
+
+
+
+
+
+

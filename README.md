@@ -1,4 +1,4 @@
-#训练faster rcnn的一些笔记
+# 训练faster rcnn的一些笔记
 [Faster RCNN](https://github.com/DetectionTeamUCAS/Faster-RCNN_Tensorflow)的训练过程，结合自己对代码的理解，在此记录下来。 
 
 ****

@@ -11,12 +11,12 @@
 transfer raw image files into tfrecord format   
 ```
 {
-  'img_name': ,
-  'img_height': ,
-  'img_width': ,
-  'img': ,
-  'gtboxes_and_label': ,
-  'num_objects': 
+  'img_name': 000059.jpg,
+  'img_height': 500,
+  'img_width': 375,
+  'img': a numpy array,
+  'gtboxes_and_label': [[x1,y1,x2,y2,label]...],
+  'num_objects': 6
 }
 ```
 ## 2.

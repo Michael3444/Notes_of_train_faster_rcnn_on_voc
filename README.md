@@ -11,7 +11,7 @@
 transfer raw image files into tfrecord format   
 ```
 {
-  'img_name': 000059.jpg,
+  'img_name': '000059.jpg',
   'img_height': 500,
   'img_width': 375,
   'img': a numpy array,

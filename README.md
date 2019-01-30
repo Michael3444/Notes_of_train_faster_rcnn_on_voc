@@ -19,9 +19,13 @@ transfer raw image files into tfrecord format
   'num_objects': 6
 }
 ```
-## 2.
+训练的batchsize设为1，图片的短边设为固定值600， 长边按比例resize， 注意最大边不超过1200，图像随机翻转。  
+
+
+## 2. generate anchors
 ## 3.
 ## 4.
 ****
 
 ****
+ 
